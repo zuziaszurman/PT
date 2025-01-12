@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    border-radius: 50px;
+    /* background-color: aqua; */
+}
+
+#country-info-btn {
+    background-color: #FF600B; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Get it to display inline-block */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Some margin */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius: 12px; /* Rounded corners */
+}
+
+svg {
+    width: 100%;
+    height: auto;
+    max-width: 90vw;
+    max-height: 80vh;
+}
+
+text {
+    font-size: 7px;
+    fill: #fff;
+    pointer-events: none;
+}
+svg path {
+    cursor: pointer;
+    transition: fill 0.3s;
+    fill : #08C189;
+    stroke: #eee;
+    stroke-width: .25;
+}
+
+svg path:hover {
+    fill: #FFC80B;
+}
+
+svg path:hover {
+    fill: #FFC80B;
+    transition: 0.6s;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+}
+footer {
+    padding: 1rem;
+    background-color: #f4f4f4;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+footer ul li {
+    display: inline;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #006284;
+}
