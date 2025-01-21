@@ -1,0 +1,339 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a:hover {
+    color: #f60;
+}
+
+.top div {
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    flex: 1 200px;
+
+}
+
+#top2 {
+    background-image: url("../img/poland.jpg");
+    opacity: 0.7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+
+}
+
+#top1 p {
+    color: #333;
+    font-size: 25px;
+    padding-left: 50px;
+}
+#top1 h2 {
+    color: #333;
+    font-size: 35px;
+    padding-left: 50px;
+}
+#top1 {
+    /* display: flex; */
+    /* flex-direction: row; */
+    justify-content: center;
+    height: 400px;
+
+}
+
+#top2 h2 {
+    color:#333;
+    text-align: right;
+    font-size: 40px;
+    padding-right: 50px;
+    text-shadow: 2px 2px 8px #333;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.popular-directions {
+    text-align: center;
+}
+
+.popular-directions h3 {
+    padding-top: 2%;
+    font-size: 1.75rem;
+}
+
+.popular-directions .cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 4% 10% 0 10%;
+}
+
+.popular-directions .card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    flex: 1 200px;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+}
+
+.popular-directions .card .text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.popular-directions .card.krakow {
+    background-image: url('../img/poland.jpg');
+}
+
+.popular-directions .card.mazury {
+    background-image: url('../img/mazury.jpg');
+}
+
+.popular-directions .card.zakopane {
+    background-image: url('../img/zakopane.jpg');
+    opacity: 0.7;
+}
+/* .popular-directions {
+    text-align: center;
+}
+.popular-directions h3 {
+    padding-top: 2%; 
+    font-size: 1.75rem;
+}
+.popular-directions .cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 4% 10% 0 10%;
+}
+.popular-directions .card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd; 
+    flex: 1 200px; 
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.popular-directions .card.krakow {
+    background-image: url('../img/poland.jpg');
+}
+.popular-directions .card.mazury  {
+    background-image: url('../img/mazury.jpg');
+}
+.popular-directions .card.zakopane {
+    background-image: url('../img/zakopane.jpg');
+    opacity: 0.7;
+} */
+.wrapper {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(2, 40vw);
+    grid-template-rows: 40vh;
+    background-color: #fff;
+    color: #444;
+    width: 500px;
+    margin-left: 10%;
+  }
+
+  .content {
+    height: 400px;
+    padding: 10px;
+  }
+
+  .column-image {
+    background: url("https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg")
+      no-repeat center/cover;
+  }
+
+  @media (max-width: 700px) {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper:nth-child(odd) {
+      flex-direction: column-reverse;
+    }
+    .popular-directions .cards {
+        flex-direction: column;
+    }
+    .top {
+        flex-direction: column;
+    }
+
+    .content {
+      height: auto;
+    }
+
+    .column-image {
+      height: 300px;
+    }
+    .top div {
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    /* .dishes {
+        grid-template-columns: 1fr;
+    } */
+  }
+
+  .visitor-experiences {
+    margin-top: 40px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.experience {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    background-color: #eaeaea;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.experience-image {
+    width: 100%;
+    height: 200px;
+    background-color: #eaeaea;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.experience-text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.experience-tag {
+    font-size: 12px;
+    color: #0073e6;
+    background-color: #e6f3ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+ .description p {
+    display: flex;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 5% 10% 5% 10%;
+}
+
+.container {
+    text-align: center;
+    padding: 10%;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dishes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.dish {
+    text-align: center;
+}
+
+.dish-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #eaeaea;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+}
+
+.dish-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dish-description {
+    font-size: 14px;
+    color: #888;
+}
+
+footer {
+    padding: 1rem;
+    background-color: #f4f4f4;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
