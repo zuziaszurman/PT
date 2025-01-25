@@ -201,5 +201,47 @@ button {
 button:hover {
     background-color: #3123C7;
 }
+/* Kontener paska wyszukiwania */
+.search-container {
+    position: relative;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Stylowanie samego inputa (pola wyszukiwania) */
+#search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Kontener z sugestiami, wyświetlający listę wyników */
+.suggestions-box {
+    position: absolute;
+    top: 100%;  /* Pojawia się tuż poniżej inputa */
+    left: 0;
+    width: 100%;
+    max-height: 200px; /* Maksymalna wysokość kontenera z wynikami */
+    overflow-y: auto;  /* Dodajemy przewijanie, gdy lista jest długa */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Ukryta początkowo */
+    z-index: 10; /* Zapewnia, że lista jest nad innymi elementami */
+    color: black;
+}
+
+/* Stylowanie poszczególnych elementów w liście wyników */
+.suggestions-box div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions-box div:hover {
+    background-color: #f0f0f0;
+}
 
 

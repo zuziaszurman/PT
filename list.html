@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista kierunków</title>
+  <title>Europejski Portal Turystyczny - Lista Kierunków</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,14 +13,85 @@
       color: #333;
     }
 
-    header, footer {
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #FF600B;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #3123C7;
+    }
+
+    .search-container {
+      position: relative;
+      margin: 1rem 2rem;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-top: none;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .suggestions div {
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .suggestions div:hover {
+      background-color: #f0f0f0;
+    }
+
+    footer {
       background-color: #FF600B;
       color: #fff;
       text-align: center;
       padding: 1rem 0;
     }
 
-    header h1, footer p {
+    footer p {
       margin: 0;
     }
 
@@ -62,184 +134,197 @@
 </head>
 <body>
 <header>
-  <h1>Lista kierunków</h1>
+  <h1>Europejski Portal Turystyczny</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="mapa.html">Mapa interaktywna</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="kierunki.html">Kierunki</a></li>
+    </ul>
+  </nav>
 </header>
 
+<div class="search-container">
+  <input type="text" id="search" placeholder="Szukaj kraju...">
+  <div class="suggestions" id="suggestions"></div>
+</div>
+
 <section class="countries">
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Albania" onclick="location.href='for_each_country.html'">
     <img src="images/albania.jpg" alt="Albania">
     <h3>Albania</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Andora" onclick="location.href='for_each_country.html'">
     <img src="images/andora.jpg" alt="Andora">
     <h3>Andora</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Austria" onclick="location.href='for_each_country.html'">
     <img src="images/austria.jpg" alt="Austria">
     <h3>Austria</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Belgia" onclick="location.href='for_each_country.html'">
     <img src="images/belgia.jpg" alt="Belgia">
     <h3>Belgia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Białoruś" onclick="location.href='for_each_country.html'">
     <img src="images/bialorus.jpg" alt="Białoruś">
     <h3>Białoruś</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Bośnia i Hercegowina" onclick="location.href='for_each_country.html'">
     <img src="images/bosnia.jpg" alt="Bośnia i Hercegowina">
     <h3>Bośnia i Hercegowina</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Bułgaria" onclick="location.href='for_each_country.html'">
     <img src="images/bulgaria.jpg" alt="Bułgaria">
     <h3>Bułgaria</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Chorwacja" onclick="location.href='for_each_country.html'">
     <img src="images/chorwacja.jpg" alt="Chorwacja">
     <h3>Chorwacja</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Czarnogóra" onclick="location.href='for_each_country.html'">
     <img src="images/czarngora.jpg" alt="Czarnogóra">
     <h3>Czarnogóra</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Czechy" onclick="location.href='for_each_country.html'">
     <img src="images/czechy.jpg" alt="Czechy">
     <h3>Czechy</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Dania" onclick="location.href='for_each_country.html'">
     <img src="images/dania.jpg" alt="Dania">
     <h3>Dania</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Estonia" onclick="location.href='for_each_country.html'">
     <img src="images/estonia.jpg" alt="Estonia">
     <h3>Estonia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Finlandia" onclick="location.href='for_each_country.html'">
     <img src="images/finlandia.jpg" alt="Finlandia">
     <h3>Finlandia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Francja" onclick="location.href='for_each_country.html'">
     <img src="images/paris1.jpg" alt="Francja">
     <h3>Francja</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Grecja" onclick="location.href='for_each_country.html'">
     <img src="images/grecja.jpg" alt="Grecja">
     <h3>Grecja</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Hiszpania" onclick="location.href='for_each_country.html'">
     <img src="images/madryt6.jpg" alt="Hiszpania">
     <h3>Hiszpania</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Holandia" onclick="location.href='for_each_country.html'">
     <img src="images/holandia.jpg" alt="Hiszpania">
     <h3>Holandia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Irlandia" onclick="location.href='for_each_country.html'">
     <img src="images/irlandia.jpg" alt="Irlandia">
     <h3>Irlandia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Islandia" onclick="location.href='for_each_country.html'">
     <img src="images/islandia.jpg" alt="Islandia">
     <h3>Islandia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Lichtenstein" onclick="location.href='for_each_country.html'">
     <img src="images/lichtenstein.jpg" alt="Lichtenstein">
     <h3>Lichtenstein</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Litwa" onclick="location.href='for_each_country.html'">
     <img src="images/litwa.jpg" alt="Litwa">
     <h3>Litwa</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Luksemburg" onclick="location.href='for_each_country.html'">
     <img src="images/luksemburg.jpg" alt="Luksemburg">
     <h3>Luksemburg</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Łotwa" onclick="location.href='for_each_country.html'">
     <img src="images/lotwa.jpg" alt="Łotwa">
     <h3>Łotwa</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Macedonia" onclick="location.href='for_each_country.html'">
     <img src="images/macedonia.jpg" alt="Macedonia">
     <h3>Macedonia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Malta" onclick="location.href='for_each_country.html'">
     <img src="images/malta.jpg" alt="Malta">
     <h3>Malta</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Mołdawia" onclick="location.href='for_each_country.html'">
     <img src="images/moldawia.jpg" alt="Mołdawia">
     <h3>Mołdawia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Monako" onclick="location.href='for_each_country.html'">
     <img src="images/monako.jpg" alt="Monako">
     <h3>Monako</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Niemcy" onclick="location.href='for_each_country.html'">
     <img src="images/niemcy.jpg" alt="Niemcy">
     <h3>Niemcy</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Norwegia" onclick="location.href='for_each_country.html'">
     <img src="images/norwegia.jpg" alt="Norwegia">
     <h3>Norwegia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Polska" onclick="location.href='for_each_country.html'">
     <img src="images/zakopane.jpg" alt="Polska">
     <h3>Polska</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
-    <img src="images/.jpg" alt="Portugalia">
+  <div class="country-card" data-name="Portugalia" onclick="location.href='for_each_country.html'">
+    <img src="images/portugalia.jpg" alt="Portugalia">
     <h3>Portugalia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="San Marino" onclick="location.href='for_each_country.html'">
     <img src="images/sanmarino.jpg" alt="San Marino">
     <h3>San Marino</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Serbia" onclick="location.href='for_each_country.html'">
     <img src="images/serbia.jpg" alt="Serbia">
     <h3>Serbia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Słowacja" onclick="location.href='for_each_country.html'">
     <img src="images/slowacja.jpg" alt="Słowacja">
     <h3>Słowacja</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Słowenia" onclick="location.href='for_each_country.html'">
     <img src="images/slowenia.jpg" alt="Słowenia">
     <h3>Słowenia</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Szwajcaria" onclick="location.href='for_each_country.html'">
     <img src="images/lugano1.jpg" alt="Szwajcaria">
     <h3>Szwajcaria</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Szwecja" onclick="location.href='for_each_country.html'">
     <img src="images/szwecja.jpg" alt="Szwecja">
     <h3>Szwecja</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Ukraina" onclick="location.href='for_each_country.html'">
     <img src="images/ukraina.jpg" alt="Ukraina">
     <h3>Ukraina</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Watykan" onclick="location.href='for_each_country.html'">
     <img src="images/watykan.jpg" alt="Watykan">
     <h3>Watykan</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Węgry" onclick="location.href='for_each_country.html'">
     <img src="images/wegry.jpg" alt="Węgry">
     <h3>Węgry</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Wielka Brytania" onclick="location.href='for_each_country.html'">
     <img src="images/wielkabryt.jpg" alt="Wielka Brytania">
     <h3>Wielka Brytania</h3>
   </div>
-  <div class="country-card" onclick="location.href='for_each_country.html'">
+  <div class="country-card" data-name="Włochy" onclick="location.href='for_each_country.html'">
     <img src="images/italy1.jpg" alt="Włochy">
     <h3>Włochy</h3>
   </div>
-
-
 </section>
 
 <footer>
   <p>&copy; 2025 Europejski Portal Turystyczny</p>
 </footer>
+<script src="js/list.js"></script>
 </body>
 </html>
