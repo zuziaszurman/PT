@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #ffc60b9c;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            color: #f60;
+        }
+
+        .faq-container {
+            width: 60vw;
+            /* margin: 0 auto; */
+            margin: 2vw auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px 10px 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            padding-left: 10vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            cursor: pointer;
+            word-wrap: break-word;
+            padding-top: 2vh;
+            padding-bottom: 3vh;
+        }
+
+        .faq-answer {
+            padding-left: 10vw;
+            padding-right: 10vw;
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+            word-wrap: break-word;
+        }
+
+        .faq-question .plus {
+            padding-left: 10vw;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            padding: 1rem;
+            background-color: #f4f4f4;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .obraz {
+            display: flex;
+            justify-content: center;
+            /* align-items: center;
+            /* height: 100vh; */
+            /* background-color: #f4f4f4;  */
+            background-color: #08c189b0;
+            box-sizing: border-box;
+            padding: 5vw;
+            border-radius: 10px;
+        }
+        .container {
+            position: relative;
+            width: 80%;
+            max-width: 70vw;
+            height: 30vh;
+            background: url('img/poland.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .trapezoid {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            /* clip-path: polygon(100% 0, 0 100%, 100% 100%); */
+            clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            /* text-align: right; */
+            /* padding: 1rem; */
+        }
+        .trapezoid h3 {
+            margin: 0;
+            text-align: right;
+            padding-left: 15vw;
+        }
+
+        footer {
+            padding: 1rem;
+            background-color: #ffc60b9c;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+
+
+        @media (max-width: 700px) {
+            .faq-question {
+                padding-left: 5vw;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .faq-question .plus {
+                padding-left: 5vw;
+                align-self: flex-end;
+            }
+
+            .faq-answer {
+                padding-left: 5vw;
+                padding-right: 5vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Europejski portal turystyczny</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mapa.html">Mapa interaktywna</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kierunki.html">Kierunki</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="obraz">
+        <div class="container">
+            <div class="trapezoid">
+                <h3>FAQ</h3>
+            </div>
+        </div>
+    </section>
+    <h2>Często zadawane pytania</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                <span class="plus">+</span>
+            </div>
+            <div class="faq-answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>About Us | Contact Us | Privacy Policy</p>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            $('.faq-question').on('click', function () {
+                const answer = $(this).next('.faq-answer');
+                const plus = $(this).find('.plus');
+
+                if (answer.is(':visible')) {
+                    answer.slideUp();
+                    plus.text('+');
+                } else {
+                    $('.faq-answer').slideUp(); // Close other answers
+                    $('.plus').text('+'); // Reset other pluses
+                    answer.slideDown();
+                    plus.text('-');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

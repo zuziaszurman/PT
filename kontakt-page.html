@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="leafTest.css">
+    <title>Kontakt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .zawartosc {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #ffc60b9c;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            color: #f60;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        .form-section .text,
+        .form-section .form {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .form-section .text h2 {
+            font-size: 1.8rem;
+        }
+
+        .form-section .text p {
+            margin: 10px 0;
+        }
+
+        .form-section .form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section .form input,
+        .form-section .form textarea,
+        .form-section .form button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-section .form button {
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-section .form button:hover {
+            background-color: gray;
+        }
+
+        footer {
+            padding: 1rem;
+            background-color: #ffc60b9c;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        
+        .obraz {
+            display: flex;
+            justify-content: center;
+            /* align-items: center;
+            height: 100vh; */
+            background-color: #08c189b0;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 5vw;
+        }
+        .container {
+            position: relative;
+            width: 80%;
+            max-width: 70vw;
+            height: 30vh;
+            background: url('img/poland.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .trapezoid {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            /* clip-path: polygon(100% 0, 0 100%, 100% 100%); */
+            clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            /* text-align: right; */
+            /* padding: 1rem; */
+        }
+        .trapezoid h3 {
+            margin: 0;
+            text-align: right;
+            padding-left: 15vw;
+        }
+
+        #map {
+            height: 500px;
+            width: 600px;
+            margin: 5vw auto;
+            width: 50%;
+            border: 3px solid green;
+        }
+
+
+        @media (max-width: 700px) {
+            .form-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Europejski portal turystyczny</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mapa.html">Mapa interaktywna</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kierunki.html">Kierunki</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="obraz">
+        <div class="container">
+            <div class="trapezoid">
+                <h3>Kontakt</h3>
+            </div>
+        </div>
+    </section>
+    <section class="zawartosc">
+        <div class="form-section">
+            <div class="text">
+                <h2>Wyślij do nas wiadomość!</h2>
+                <p>Wypełnij formularz obok.</p>
+            </div>
+            <div class="form">
+                <form action="#" method="POST">
+                    <label for="name">Imię</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Adres Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button type="reset">Reset</button>
+                        <button type="submit">Wyślij</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="text">
+                <h2>Zasubskrybuj Nasz Newsletter</h2>
+                <p>i otrzymuj oferty podróży oraz aktualizacje</p>
+            </div>
+            <div class="form">
+                <form action="#" method="POST">
+                    <label for="email-newsletter">Adres Email</label>
+                    <input type="email" id="email-newsletter" name="email-newsletter" placeholder="Enter your email"
+                        required>
+
+                    <label for="name-newsletter">Imię</label>
+                    <input type="text" id="name-newsletter" name="name-newsletter" placeholder="Your name" required>
+
+                    <button type="submit">Subskrybuj</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="map"></div>
+    <footer>
+        <p>About Us | Contact Us | Privacy Policy</p>
+    </footer>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var marker = L.marker([51.5, -0.09]).addTo(map);
+        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+        var popup = L.popup()
+            .setLatLng([51.513, -0.09])
+            .setContent("I am a standalone popup.")
+            .openOn(map);
+
+        var popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("You clicked the map at " + e.latlng.toString())
+                .openOn(map);
+        }
+
+        map.on('click', onMapClick);
+
+
+
+
+    </script>
+</body>
+
+</html>

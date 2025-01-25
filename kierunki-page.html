@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybór Kierunków</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #ffc60b9c; */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #ffc60b9c;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            color: #f60;
+        }
+
+
+        .top {
+            text-align: center;
+            padding: 2rem;
+            /* background-color: #08C189; */
+            margin-left: 10vw;
+            margin-right: 10vw;
+            /* background: url('img/poland.jpg'); */
+        }
+
+        .filters-container {
+            padding: 20px;
+            /* background-color: #ffc60b9c; */
+            display: flex;
+            /* flex-direction: column; */
+            gap: 10vw;
+            justify-content: center;
+        }
+
+        .results-container {
+            display: none;
+            flex-direction: column;
+            /* background-color: rgba(0, 255, 255, 0.423);  */
+            padding: 20px;
+            align-items: center;
+            gap: 20px;
+            /* width: 80vw; */
+        }
+
+        .result {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #ddd;
+            /* background-color: #08c189b0; */
+            border-radius: 10px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 70vw;
+            /* height: 200pt; */
+        }
+
+        .result .image {
+            flex: 1;
+            background: url("https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg") no-repeat center/cover;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40vh;
+        }
+
+        .result .description {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .colortla {
+            background-color: #08c189b0;
+            padding: 10px;
+            margin: 2vw;
+            border-radius: 20px;
+        }
+
+
+        .result a {
+            color: #333;
+            font-size: 30px;
+            text-decoration: underline;
+        }
+
+        .description a:hover {
+            color: #f60;
+        }
+
+        .show-results {
+            margin-top: 20px;
+            text-align: center;
+            /* background-color: #ffc60b9c; */
+        }
+
+        .show-results button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 1rem;
+            background-color: #f4f4f4;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 700px) {
+            .result {
+                flex-direction: column;
+                height: 60vh;
+            }
+
+            .result .image {
+                height: max-content;
+            }
+
+            .result .description {
+                height: max-content;
+            }
+
+            .result a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Europejski portal turystyczny</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mapa.html">Mapa interaktywna</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kierunki.html">Kierunki</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="colortla">
+        <div class="top">
+            <h2>Odkryj <br> swoją następną przygodę!</h2>
+            <p> Wybierz kryteria </p>
+        </div>
+        <div class="filters-container">
+            <select id="filter-experience">
+                <option value="">Wybierz przeżycie</option>
+                <option value="adventure">Przygoda</option>
+                <option value="relax">Relaks</option>
+            </select>
+            <select id="filter-budget">
+                <option value="">Wybierz budżet</option>
+                <option value="low">Niski</option>
+                <option value="medium">Średni</option>
+                <option value="high">Wysoki</option>
+            </select>
+            <select id="filter-region">
+                <option value="">Wybierz region</option>
+                <option value="europe">Europa</option>
+                <option value="asia">Azja</option>
+                <option value="america">Ameryka</option>
+            </select>
+        </div>
+
+        <div class="show-results">
+            <button onclick="filterResults()">Pokaż wyniki</button>
+        </div>
+    </section>
+
+    <div class="results-container" id="results">
+        <div class="result" data-experience="adventure" data-budget="medium" data-region="europe">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link1.html">Przygoda w Europie</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus at libero nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at
+                    libero nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero
+                    nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.Lorem ipsum
+                    dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Phasellus at libero nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus at libero nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at
+                    libero nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero
+                    nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="relax" data-budget="low" data-region="asia">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link2.html">Relaks w Azji</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <div class="result" data-experience="adventure" data-budget="high" data-region="america">
+            <div class="image">IMAGE</div>
+            <div class="description">
+                <a href="link3.html">Przygoda w Ameryce</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla.</p>
+            </div>
+        </div>
+        <!-- Dodaj więcej divów z różnymi atrybutami -->
+    </div>
+    <footer>
+        <p>About Us | Contact Us | Privacy Policy</p>
+    </footer>
+
+    <script>
+        function filterResults() {
+            const experience = document.getElementById('filter-experience').value;
+            const budget = document.getElementById('filter-budget').value;
+            const region = document.getElementById('filter-region').value;
+
+            const results = document.querySelectorAll('.result');
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.style.display = 'flex';
+
+            results.forEach(result => {
+                const matchesExperience = !experience || result.dataset.experience === experience;
+                const matchesBudget = !budget || result.dataset.budget === budget;
+                const matchesRegion = !region || result.dataset.region === region;
+
+                if (matchesExperience && matchesBudget && matchesRegion) {
+                    result.style.display = 'flex';
+                } else {
+                    result.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
