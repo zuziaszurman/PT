@@ -8,23 +8,26 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            /* background-color: #ffc60b9c; */
+            height: 100%;  /* Ustawia pełną wysokość strony */
+            margin: 0;     /* Usuwa domyślne marginesy */
+            display: flex; /* Ustawia flexbox na stronie */
+            flex-direction: column; /* Ustawia el. w kolumnie */
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: #ffc60b9c;
-            border-bottom: 1px solid #ddd;
-        }
+         header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             padding: 1rem 3rem;
+             background-color: #FF600B; /* Main color */
+             color: #fff;
+             height: 2.5rem;
+         }
 
         header h1 {
             font-size: 1.5rem;
             margin: 0;
+            color: #fff;
         }
 
         nav ul {
@@ -33,6 +36,7 @@
             padding: 0;
             display: flex;
             gap: 1rem;
+            align-items: center;
         }
 
         nav ul li {
@@ -41,11 +45,79 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: #fff; /* Accent color */
+            font-weight: bold;
         }
 
         nav ul li a:hover {
-            color: #f60;
+            color: #3123C7; /* Accent hover effect */
+        }
+
+        /* Search container positioning */
+        .search-container {
+            position: relative;
+            max-width: 300px;
+            margin: 0;
+            margin-left: auto; /* Moves the search container further to the right */
+        }
+
+        /* Kontener z sugestiami, wyświetlający listę wyników */
+        .suggestions-box {
+            position: absolute;
+            top: 100%;  /* Pojawia się tuż poniżej inputa */
+            left: 0;
+            width: 100%;
+            max-height: 200px; /* Maksymalna wysokość kontenera z wynikami */
+            overflow-y: auto;  /* Dodajemy przewijanie, gdy lista jest długa */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none; /* Ukryta początkowo */
+            z-index: 10; /* Zapewnia, że lista jest nad innymi elementami */
+            color: black;
+        }
+
+        /* Stylowanie poszczególnych elementów w liście wyników */
+        .suggestions-box div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestions-box div:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Styl dla kontenera paska wyszukiwania */
+        .search-container {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        /* Pokazuje sugerowane wyniki, gdy jest coś wpisane */
+        .search-container input:focus + .suggestions,
+        .suggestions.active {
+            display: block;
+        }
+        /* Kontener paska wyszukiwania */
+        .search-container {
+            position: relative;
+            max-width: 300px;
+            margin: 10px auto;
+        }
+
+        /* Stylowanie samego inputa (pola wyszukiwania) */
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
         }
 
 
@@ -105,7 +177,7 @@
         }
 
         .colortla {
-            background-color: #08c189b0;
+            background-color: #08C189;
             padding: 10px;
             margin: 2vw;
             border-radius: 20px;
@@ -134,12 +206,6 @@
             cursor: pointer;
         }
 
-        footer {
-            padding: 1rem;
-            background-color: #f4f4f4;
-            text-align: center;
-            border-top: 1px solid #ddd;
-        }
 
         @media (max-width: 700px) {
             .result {
@@ -159,23 +225,67 @@
                 font-size: 20px;
             }
         }
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: #FF600B; /* Main color */
+            color: #fff;
+            height: 2.5rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        footer ul li {
+            display: inline;
+
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        footer ul li a:hover {
+            color: #3123C7; /* Accent hover effect */
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Europejski portal turystyczny</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="mapa.html">Mapa interaktywna</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="kierunki.html">Kierunki</a></li>
-                <li><a href="#">Search</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <h1>Europejski portal turystyczny</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="europe.html">Mapa interaktywna</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="kierunki-page.html">Kierunki</a></li>
+            <li><a href="faq-page.html">FAQ</a></li>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Szukaj kraju..." oninput="searchCountries()">
+                <!-- Lista wyników wyszukiwania -->
+                <div id="suggestions-box" class="suggestions-box"></div>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Skrypt JavaScript -->
+    <script src="js/script.js"></script>
+
+
+</header>
     <section class="colortla">
         <div class="top">
             <h2>Odkryj <br> swoją następną przygodę!</h2>
@@ -361,9 +471,15 @@
         </div>
         <!-- Dodaj więcej divów z różnymi atrybutami -->
     </div>
+<footer>
     <footer>
-        <p>About Us | Contact Us | Privacy Policy</p>
+        <ul>
+            <li><a href="about.html">O nas</a></li> |
+            <li><a href="kontakt-page.html">Kontakt</a></li>
+        </ul>
     </footer>
+    <p>&copy; 2025 Europejski Portal Turystyczny</p>
+</footer>
 
     <script>
         function filterResults() {

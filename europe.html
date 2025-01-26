@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Animacja</title>
+    <title>Mapa interaktywna</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" type = "text/css" href="css/europe.css">
 </head>
 <body>
-    <header>
-        <h1>Europejski portal turystyczny</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="mapa.html">Mapa interaktywna</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="kierunki.html">Kierunki</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <h1>Europejski portal turystyczny</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="europe.html">Mapa interaktywna</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="kierunki-page.html">Kierunki</a></li>
+            <li><a href="faq-page.html">FAQ</a></li>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Szukaj kraju..." oninput="searchCountries()">
+                <!-- Lista wyników wyszukiwania -->
+                <div id="suggestions-box" class="suggestions-box"></div>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Skrypt JavaScript -->
+    <script src="js/script.js"></script>
+
+
+</header>
     <!-- viewbox="0 0 1000 684" -->
 <div id = "map">
     <?xml version="1.0"?><svg  baseprofile="tiny"  stroke-linecap="round" stroke-linejoin="round"  version="1.2" viewbox="90 0 1000 684"  xmlns="http://www.w3.org/2000/svg">
@@ -168,12 +179,13 @@
 <a id="country-info-btn" style="display:none; position:absolute;">Zobacz więcej <br> o tym kraju</a>
 <!-- <button id="back-btn" style="display:none;" onclick="location.href='europe.html'">Powrót</button> -->
 <footer>
-    <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><button id="back-btn" style="display:none;" onclick="location.href='europe.html'">Powrót</button></li>
-    </ul>
+    <footer>
+        <ul>
+            <li><a href="about.html">O nas</a></li> |
+            <li><a href="kontakt-page.html">Kontakt</a></li>
+        </ul>
+    </footer>
+    <p>&copy; 2025 Europejski Portal Turystyczny</p>
 </footer>
 <script>
     document.querySelectorAll('path').forEach(country => {

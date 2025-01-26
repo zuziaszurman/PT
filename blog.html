@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/blog.css">
+    <title>Blog</title>
+    <script src="js/blog.js"></script>
 </head>
 <body>
+<header>
+    <h1>Europejski portal turystyczny</h1>
 
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="europe.html">Mapa interaktywna</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="kierunki-page.html">Kierunki</a></li>
+            <li><a href="faq-page.html">FAQ</a></li>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Szukaj kraju..." oninput="searchCountries()">
+                <!-- Lista wyników wyszukiwania -->
+                <div id="suggestions-box" class="suggestions-box"></div>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Skrypt JavaScript -->
+    <script src="js/script.js"></script>
+
+
+</header>
+<div class="container">
+    <div class="main-header">
+        <h1>Ostatnie Wpisy</h1>
+        <p>Odkryj wspaniałe miejsca!</p>
+    </div>
+
+    <!-- Kontener filtrów pod sekcją Ostatnie Wpisy -->
+    <div class="filter-container">
+        <button class="filter-button">#culture</button>
+        <button class="filter-button">#spain</button>
+        <button class="filter-button">#cuisine</button>
+        <button class="filter-button">#italy</button>
+        <button class="filter-button">#adventure</button>
+        <button class="filter-button">#poland</button>
+    </div>
+</div>
+
+<div class="posts">
+    <div class="post">
+        <img src="images/user.png" alt="User Avatar" class="review-avatar">
+        <div class="post-content">
+            <strong>Sophie</strong>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla...</p>
+            <p class="hasztag">#culture #spain</p>
+        </div>
+    </div>
+
+    <div class="post">
+        <img src="images/user.png" alt="User Avatar" class="review-avatar">
+        <div class="post-content">
+            <strong>John</strong>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla...</p>
+            <p class="hasztag">#cuisine #italy</p>
+        </div>
+    </div>
+
+    <div class="post">
+        <img src="images/user.png" alt="User Avatar" class="review-avatar">
+        <div class="post-content">
+            <strong>Peter</strong>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla...</p>
+            <p class="hasztag">#adventure #poland</p>
+        </div>
+    </div>
+</div>
+
+<section class="interactive-map" onclick="location.href='europe.html'">
+    <h2>Mapa interaktywna</h2>
+    <p>Rozpocznij swoją europejską podróż tutaj!</p>
+</section>
+<footer>
+    <footer>
+        <ul>
+            <li><a href="about.html">O nas</a></li> |
+            <li><a href="kontakt-page.html">Kontakt</a></li>
+        </ul>
+    </footer>
+    <p>&copy; 2025 Europejski Portal Turystyczny</p>
+</footer>
 </body>
+
 </html>

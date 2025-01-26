@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/about_style.css">
+  <title>Europejski Portal Turystyczny</title>
+</head>
+<body>
+<header>
+  <h1>Europejski portal turystyczny</h1>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="europe.html">Mapa interaktywna</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="kierunki-page.html">Kierunki</a></li>
+      <li><a href="faq-page.html">FAQ</a></li>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Szukaj kraju..." oninput="searchCountries()">
+        <!-- Lista wyników wyszukiwania -->
+        <div id="suggestions-box" class="suggestions-box"></div>
+      </div>
+    </ul>
+  </nav>
+
+  <!-- Skrypt JavaScript -->
+  <script src="js/script.js"></script>
+
+</header>
+
+<section class="main-banner">
+  <p>Nasz zespół</p>
+</section>
+
+<section class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at libero nulla. Sed ipsum justo, ultrices eu efficitur id, consectetur congue ex. Duis ut ipsum consequat, consectetur purus vitae, blandit nisl. Sed dignissim metus at vulputate maximus.</p>
+  <p>Pellentesque et laoreet sapien. Nulla vel ullamcorper dolor. Proin vitae vehicula urna. Integer tincidunt risus purus, eu cursus libero sodales suscipit.</p>
+  <p>Donec placerat eget nisi nec molestie. Pellentesque lobortis mattis tortor, maximus fringilla tellus commodo et. Etiam in mauris justo.</p>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <h3>Średni czas trwania podróży</h3>
+    <p>10 dni<br><small>+/- 2 dni</small></p>
+  </div>
+  <div class="stat" onclick="location.href='for_each_country.html'">
+    <h3>Najczęściej odwiedzany kraj</h3>
+    <p>Włochy</p>
+  </div>
+</section>
+
+<section class="chart">
+  <h4>Popularność kierunków podróży</h4>
+  <img src="images/wykres.webp" alt="wykres">
+</section>
+
+<div class="container">
+  <div class="newsletter-section">
+    <div>
+      <h3>Zasubskrybuj nasz Newsletter</h3>
+      <p>Otrzymuj oferty podróży oraz aktualizacje na bieżąco.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Wpisz swój adres e-mail">
+        <input type="text" placeholder="Wpisz swoje imię">
+        <button type="submit">Subskrybuj</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <footer>
+      <ul>
+        <li><a href="about.html">O nas</a></li> |
+        <li><a href="kontakt-page.html">Kontakt</a></li>
+      </ul>
+    </footer>
+    <p>&copy; 2025 Europejski Portal Turystyczny</p>
+  </footer>
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".newsletter-form");
+    const emailInput = form.querySelector('input[type="email"]');
+    const nameInput = form.querySelector('input[type="text"]');
+    const button = form.querySelector('button');
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // Zapobiega przeładowaniu strony
+
+      if (emailInput.value.trim() !== "" && nameInput.value.trim() !== "") {
+        button.textContent = "Zasubskrybowano";
+        button.disabled = true; // Wyłącza przycisk po subskrypcji
+        button.style.backgroundColor = "#08C189"; // Opcjonalnie zmienia kolor
+      } else {
+        alert("Proszę wypełnić oba pola!");
+      }
+    });
+  });
+</script>
+</html>

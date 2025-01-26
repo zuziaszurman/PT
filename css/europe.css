@@ -2,33 +2,133 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: aqua;
+    background-color: #ffffff;
 }
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f4f4f4;
-    border-bottom: 1px solid #ddd;
+    padding: 1rem 3rem;
+    background-color: #FF600B; /* Main color */
+    color: #fff;
+    height: 2.5rem;
 }
+
 header h1 {
     font-size: 1.5rem;
     margin: 0;
+    color: #fff;
 }
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
+
 nav ul li {
     display: inline;
 }
+
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fff; /* Accent color */
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #3123C7; /* Accent hover effect */
+}
+
+/* Search container positioning */
+.search-container {
+    position: relative;
+    max-width: 300px;
+    margin: 0;
+    margin-left: auto; /* Moves the search container further to the right */
+}
+
+/* Kontener paska wyszukiwania */
+.search-container {
+    position: relative;
+    max-width: 300px;
+    margin: 10px auto;
+}
+
+/* Stylowanie samego inputa (pola wyszukiwania) */
+#search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Kontener z sugestiami, wyświetlający listę wyników */
+.suggestions-box {
+    position: absolute;
+    top: 100%;  /* Pojawia się tuż poniżej inputa */
+    left: 0;
+    width: 100%;
+    max-height: 200px; /* Maksymalna wysokość kontenera z wynikami */
+    overflow-y: auto;  /* Dodajemy przewijanie, gdy lista jest długa */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Ukryta początkowo */
+    z-index: 10; /* Zapewnia, że lista jest nad innymi elementami */
+    color: black;
+}
+
+/* Stylowanie poszczególnych elementów w liście wyników */
+.suggestions-box div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions-box div:hover {
+    background-color: #f0f0f0;
+}
+
+/* Styl dla kontenera paska wyszukiwania */
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Styl dla kontenera z sugestiami */
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestions div:hover {
+    background-color: #f1f1f1;
+}
+
+/* Pokazuje sugerowane wyniki, gdy jest coś wpisane */
+.search-container input:focus + .suggestions,
+.suggestions.active {
+    display: block;
 }
 
 #map {
@@ -69,7 +169,7 @@ text {
 svg path {
     cursor: pointer;
     transition: fill 0.3s;
-    fill : #08C189;
+    fill : #3123C7;
     stroke: #eee;
     stroke-width: .25;
 }
@@ -83,14 +183,15 @@ svg path:hover {
     transition: 0.6s;
     cursor: pointer;
 }
-a {
-    text-decoration: none;
-}
+/* Footer */
 footer {
-    padding: 1rem;
-    background-color: #f4f4f4;
-    text-align: center;
-    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 3rem;
+    background-color: #FF600B; /* Main color */
+    color: #fff;
+    height: 2.5rem;
 }
 
 footer ul {
@@ -104,14 +205,15 @@ footer ul {
 
 footer ul li {
     display: inline;
+
 }
 
 footer ul li a {
     text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
+    color: #fff;
+    font-weight: bold;
 }
 
 footer ul li a:hover {
-    color: #006284;
+    color: #3123C7; /* Accent hover effect */
 }

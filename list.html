@@ -130,21 +130,60 @@
       padding: 0.5rem;
       font-size: 1rem;
     }
+    /* Footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 3rem;
+      background-color: #FF600B; /* Main color */
+      color: #fff;
+      height: 2.5rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    footer ul li {
+      display: inline;
+
+    }
+
+    footer ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    footer ul li a:hover {
+      color: #3123C7; /* Accent hover effect */
+    }
   </style>
 </head>
 <body>
+
+<body>
 <header>
-  <h1>Europejski Portal Turystyczny</h1>
+  <h1>Europejski portal turystyczny</h1>
+
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="mapa.html">Mapa interaktywna</a></li>
+      <li><a href="index.html">Strona główna</a></li>
+      <li><a href="europe.html">Mapa interaktywna</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="kierunki.html">Kierunki</a></li>
+      <li><a href="kierunki-page.html">Kierunki</a></li>
+      <li><a href="faq-page.html">FAQ</a></li>
     </ul>
   </nav>
+
 </header>
+
 
 <div class="search-container">
   <input type="text" id="search" placeholder="Szukaj kraju...">
@@ -323,6 +362,12 @@
 </section>
 
 <footer>
+  <footer>
+    <ul>
+      <li><a href="about.html">O nas</a></li> |
+      <li><a href="kontakt-page.html">Kontakt</a></li>
+    </ul>
+  </footer>
   <p>&copy; 2025 Europejski Portal Turystyczny</p>
 </footer>
 <script src="js/list.js"></script>

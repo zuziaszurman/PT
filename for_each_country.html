@@ -6,19 +6,158 @@
     <link rel="stylesheet" type="text/css" href="css/for_each_country.css">
     <title>Europejski Portal Turystyczny</title>
 </head>
+<style>
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        background-color: #FF600B; /* Main color */
+        color: #fff;
+        height: 2.5rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        color: #fff;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: inline;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff; /* Accent color */
+        font-weight: bold;
+    }
+
+    nav ul li a:hover {
+        color: #3123C7; /* Accent hover effect */
+    }
+
+    /* Search container positioning */
+    .search-container {
+        position: relative;
+        max-width: 300px;
+        margin: 0;
+        margin-left: auto; /* Moves the search container further to the right */
+    }
+
+    /* Kontener z sugestiami, wyświetlający listę wyników */
+    .suggestions-box {
+        position: absolute;
+        top: 100%;  /* Pojawia się tuż poniżej inputa */
+        left: 0;
+        width: 100%;
+        max-height: 200px; /* Maksymalna wysokość kontenera z wynikami */
+        overflow-y: auto;  /* Dodajemy przewijanie, gdy lista jest długa */
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none; /* Ukryta początkowo */
+        z-index: 10; /* Zapewnia, że lista jest nad innymi elementami */
+        color: black;
+    }
+
+    /* Stylowanie poszczególnych elementów w liście wyników */
+    .suggestions-box div {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .suggestions-box div:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Styl dla kontenera paska wyszukiwania */
+    .search-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Styl dla kontenera z sugestiami */
+    .suggestions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+
+    .suggestions div {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .suggestions div:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Pokazuje sugerowane wyniki, gdy jest coś wpisane */
+    .search-container input:focus + .suggestions,
+    .suggestions.active {
+        display: block;
+    }
+    /* Kontener paska wyszukiwania */
+    .search-container {
+        position: relative;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    /* Stylowanie samego inputa (pola wyszukiwania) */
+    #search-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+</style>
 <body>
 <header>
     <h1>Europejski portal turystyczny</h1>
+
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="mapa.html">Mapa interaktywna</a></li>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="europe.html">Mapa interaktywna</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="kierunki.html">Kierunki</a></li>
-            <li><a href="#">Search</a></li>
+            <li><a href="kierunki-page.html">Kierunki</a></li>
+            <li><a href="faq-page.html">FAQ</a></li>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Szukaj kraju..." oninput="searchCountries()">
+                <!-- Lista wyników wyszukiwania -->
+                <div id="suggestions-box" class="suggestions-box"></div>
+            </div>
         </ul>
     </nav>
+
+
+
+    <!-- Skrypt JavaScript -->
+    <script src="js/script.js"></script>
+
+
 </header>
 <section class = "top">
     <div id = "top1">
@@ -240,9 +379,15 @@
       <div class="experience-tag">#FoodieAdventures</div>
   </div>
 </div>
-</div>
 <footer>
-    <p>About Us | Contact Us | Privacy Policy</p>
+    <footer>
+        <ul>
+            <li><a href="about.html">O nas</a></li> |
+            <li><a href="kontakt-page.html">Kontakt</a></li>
+        </ul>
+    </footer>
+    <p>&copy; 2025 Europejski Portal Turystyczny</p>
 </footer>
+
 </body>
 </html>

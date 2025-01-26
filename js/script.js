@@ -13,7 +13,7 @@ const europejskieKraje = [
     { name: "Chorwacja" },
     { name: "Cypr" },
     { name: "Czechy" },
-    { name: "Danemarka" },
+    { name: "Dania" },
     { name: "Estonia" },
     { name: "Finlandia" },
     { name: "Francja" },
@@ -50,7 +50,7 @@ const europejskieKraje = [
     { name: "Szwajcaria" },
     { name: "Turcja" },
     { name: "Ukraina" },
-    { name: "Zjednoczone Królestwo" },
+    { name: "Wielka Brytania" },
     { name: "Watykan" }
 ];
 
